@@ -1,6 +1,6 @@
-# OctoPrint-DHT22
+# OctoPrint-HTU31
 
-Reads DHT22 sensors and adds the data to OctoPrint's temperature data.
+Reads HTU31 sensors and adds the data to OctoPrint's temperature data.
 
 ## Setup
 
@@ -11,7 +11,7 @@ Install libgpiod2.
 Install via the bundled [Plugin Manager](https://docs.octoprint.org/en/master/bundledplugins/pluginmanager.html)
 or manually using this URL:
 
-    https://github.com/aerickson/OctoPrint-DHT22/archive/master.zip
+    https://github.com/aerickson/OctoPrint-HTU31/archive/master.zip
 
 ## Graphing
 

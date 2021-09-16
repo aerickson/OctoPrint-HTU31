@@ -1,4 +1,4 @@
 include README.md
-recursive-include octoprint_DHT22/templates *
-recursive-include octoprint_DHT22/translations *
-recursive-include octoprint_DHT22/static *
+recursive-include octoprint_HTU31/templates *
+recursive-include octoprint_HTU31/translations *
+recursive-include octoprint_HTU31/static *

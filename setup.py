@@ -4,21 +4,21 @@
 ### Do not forget to adjust the following variables to your own plugin.
 
 # The plugin's identifier, has to be unique
-plugin_identifier = "DHT22"
+plugin_identifier = "HTU31"
 
 # The plugin's python package, should be "octoprint_<plugin identifier>", has to be unique
-plugin_package = "octoprint_DHT22"
+plugin_package = "octoprint_HTU31"
 
 # The plugin's human readable name. Can be overwritten within OctoPrint's internal data via __plugin_name__ in the
 # plugin module
-plugin_name = "OctoPrint-DHT22"
+plugin_name = "OctoPrint-HTU31"
 
 # The plugin's version. Can be overwritten within OctoPrint's internal data via __plugin_version__ in the plugin module
 plugin_version = "0.1.7"
 
 # The plugin's description. Can be overwritten within OctoPrint's internal data via __plugin_description__ in the plugin
 # module
-plugin_description = """Reads DHT22 sensors and adds the data to OctoPrint's temperature data."""
+plugin_description = """Reads HTU31 sensors and adds the data to OctoPrint's temperature data."""
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
 plugin_author = "Andrew J. Erickson"
@@ -27,13 +27,13 @@ plugin_author = "Andrew J. Erickson"
 plugin_author_email = "aerickson@gmail.com"
 
 # The plugin's homepage URL. Can be overwritten within OctoPrint's internal data via __plugin_url__ in the plugin module
-plugin_url = "https://github.com/aerickson/OctoPrint-DHT22"
+plugin_url = "https://github.com/aerickson/OctoPrint-HTU31"
 
 # The plugin's license. Can be overwritten within OctoPrint's internal data via __plugin_license__ in the plugin module
 plugin_license = "AGPLv3"
 
 # Any additional requirements besides OctoPrint should be listed here
-plugin_requires = ["adafruit-circuitpython-dht>=3.6.1", 
+plugin_requires = ["adafruit-circuitpython-htu31d>=1.1.1",
 	# below are installed as deps of above, but we'd like to make sure they get updated
 	"adafruit-blinka>=6.13.0", "adafruit-platformdetect>=3.15.3"]
 
