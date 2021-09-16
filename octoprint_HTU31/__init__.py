@@ -47,13 +47,13 @@ class Htu31Plugin(
 
 
     #~~ TemplatePlugin
-    # def get_template_configs(self):
-    #     return [dict(type="settings", custom_bindings=False)]
+    def get_template_configs(self):
+        return [dict(type="settings", custom_bindings=False)]
 
     ##~~ SettingsPlugin mixin
-    # def on_settings_save(self, data):
-    #     self._logger.info("in on_settings_save")
-    #     octoprint.plugin.SettingsPlugin.on_settings_save(self, data)
+    def on_settings_save(self, data):
+        self._logger.info("in on_settings_save")
+        octoprint.plugin.SettingsPlugin.on_settings_save(self, data)
 
     def get_settings_defaults(self):
         self._logger.info("in get_settings_defaults")
@@ -62,13 +62,13 @@ class Htu31Plugin(
             pin_configuration="Enclosure:41,External:40"
         )
 
-    # def get_settings_restricted_paths(self):
-    #     return dict(admin=[["debugging_enabled"], ["pin_configuration"],],
-    #                 user=[],
-    #                 never=[])
+    def get_settings_restricted_paths(self):
+        return dict(admin=[["debugging_enabled"], ["pin_configuration"],],
+                    user=[],
+                    never=[])
 
-    # def get_settings_version(self):
-    #     return 1
+    def get_settings_version(self):
+        return 1
         
     # see https://docs.octoprint.org/en/maintenance/plugins/hooks.html?highlight=octoprint%20comm%20protocol#octoprint-comm-protocol-temperatures-received
     def callback(self, comm, parsed_temps):
