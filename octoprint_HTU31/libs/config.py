@@ -11,10 +11,15 @@ class HTU31ParseException(HTU31Exception):
 def parse_sensor_config(pin_config_string):
     sensors = {}
     try:
-        conf_pairs = pin_config_string.split(':')
-        for name, pin in conf_pairs.split(','):
+        conf_pairs = pin_config_string.split(',')
+        for name, pin in conf_pairs.split(':'):
             sensors[name] = pin
             # print("%s: %s" %name, pin)
     except Exception as e:
         raise HTU31ParseException("parse error when reading config.py, exception: %s" % e)
     return sensors
+
+if __name__ == "__main__":
+    # execute only if run as a script
+    import pprint
+    pprint.pprint(parse_sensor_config('Abc:31,DDD:22'))
