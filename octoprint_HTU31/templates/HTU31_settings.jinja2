@@ -1,8 +1,9 @@
-<h3>{{ _('HTU31 Configuration') }}</h3>
 
-<b>NOT WORKING YET!!!</b>
+
 
 <form class="form-horizontal">
+    <h3>{{ _('HTU31 Configuration') }}</h3>
+    <b>NOT WORKING YET!!!</b>
 	<div class="control-group">
 		<div class="controls">
 			<label class="checkbox">
@@ -18,6 +19,7 @@
         <div class="controls">
             <input type="text" class="input-block-level" data-bind="value: settings.plugins.HTU31.pin_configuration">
         </div>
+        <span class="help-block">{{ _('format: "name:hex_address,name2:hex_address2"') }}</span>
     </div>
 
 </form>
