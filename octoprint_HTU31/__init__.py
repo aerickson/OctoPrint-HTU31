@@ -12,10 +12,9 @@ from .libs.config import parse_sensor_config, HTU31ParseException
 
 class Htu31Plugin(
     octoprint.plugin.StartupPlugin,
-    octoprint.plugin.TemplatePlugin,     
+    octoprint.plugin.TemplatePlugin,
     octoprint.plugin.SettingsPlugin,
 ):
-
     def __init__(self):
         self.sensors = {}
         self.sensor_objects = {}
@@ -25,23 +24,31 @@ class Htu31Plugin(
     def on_after_startup(self):
         # self._logger.info("startup")
         try:
-            self.sensors = parse_sensor_config(self._settings.get(["pin_configuration"]))
+            self.sensors = parse_sensor_config(
+                self._settings.get(["pin_configuration"])
+            )
         except HTU31ParseException as e:
-            self._logger.error("on_after_startup: parse error when reading settings, exception: %s" % e)
+            self._logger.error(
+                "on_after_startup: parse error when reading settings, exception: %s" % e
+            )
             self._logger.error(e)
 
         i2c = board.I2C()
         for name, pin in self.sensors.items():
             int_value_for_hex_pin = int(pin, 16)
-            self.sensor_objects[name] = adafruit_htu31d.HTU31D(i2c, int_value_for_hex_pin)
+            self.sensor_objects[name] = adafruit_htu31d.HTU31D(
+                i2c, int_value_for_hex_pin
+            )
             # disable heater
             self.sensor_objects[name].heater = False
 
-        self._logger.info("startup: pin_configuration: %s" % self._settings.get(["pin_configuration"]))
+        self._logger.info(
+            "startup: pin_configuration: %s" % self._settings.get(["pin_configuration"])
+        )
         self.start_timer()
         # self._logger.info("exit on_after_startup")
 
-    #~~ TemplatePlugin
+    # ~~ TemplatePlugin
     def get_template_configs(self):
         return [dict(type="settings", custom_bindings=False)]
 
@@ -53,18 +60,17 @@ class Htu31Plugin(
     def get_settings_defaults(self):
         self._logger.info("in get_settings_defaults")
         return dict(
-            debugging_enabled=False,
-            pin_configuration="Enclosure:41,External:40"
+            debugging_enabled=False, pin_configuration="Enclosure:41,External:40"
         )
 
     def get_settings_restricted_paths(self):
-        return dict(admin=[["debugging_enabled"], ["pin_configuration"],],
-                    user=[],
-                    never=[])
+        return dict(
+            admin=[["debugging_enabled"], ["pin_configuration"],], user=[], never=[]
+        )
 
     def get_settings_version(self):
         return 1
-        
+
     # see https://docs.octoprint.org/en/maintenance/plugins/hooks.html?highlight=octoprint%20comm%20protocol#octoprint-comm-protocol-temperatures-received
     def callback(self, comm, parsed_temps):
         # parsed_temps.update(test = (random.uniform(99,101),100))
@@ -83,7 +89,7 @@ class Htu31Plugin(
         # self._logger.info("in doWork")
         for name, sensor_obj in self.sensor_objects.items():
             try:
-                temperature, _humidity =  sensor_obj.measurements
+                temperature, _humidity = sensor_obj.measurements
                 self.current_data[name] = round(temperature, 2)
                 # self._logger.info("%s: %s" % (name, self.current_data[name]))
             except Exception as error:
@@ -96,7 +102,9 @@ class Htu31Plugin(
         # self._logger.info(
         #     "starting timer to run command '%s' every %s seconds" % (the_cmd, interval)
         # )
-        self.timer = octoprint.util.RepeatedTimer(interval, self.do_work, run_first=True)
+        self.timer = octoprint.util.RepeatedTimer(
+            interval, self.do_work, run_first=True
+        )
         self.timer.start()
 
     ##~~ Softwareupdate hook
@@ -113,7 +121,7 @@ class Htu31Plugin(
                 type="github_commit",
                 user="aerickson",
                 repo="OctoPrint-HTU31",
-                branch='master',
+                branch="master",
                 pip="https://github.com/aerickson/OctoPrint-HTU31/archive/{target}.zip",
                 current=self._plugin_version,
             )
