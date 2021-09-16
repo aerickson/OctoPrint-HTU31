@@ -7,6 +7,7 @@ import board
 import octoprint.plugin
 import octoprint.util
 
+from .libs.config import parse_sensor_config, HTU31ParseException
 
 class Htu31Plugin(
     octoprint.plugin.StartupPlugin,
@@ -14,7 +15,7 @@ class Htu31Plugin(
     octoprint.plugin.SettingsPlugin,
 ):
 
-    def init(self):
+    def __init__(self):
         # TODO: define instance vars
         self.sensors = {}
         self.sensor_objects = {}
@@ -27,10 +28,14 @@ class Htu31Plugin(
 
         # maps sensor name to pin
         # 0x41, 0x40
-        self.sensors = {"enclosure": '41', "external": '40'}
-        self.sensor_objects = {}
-        self.current_data = {}
-        self.timer = None
+        # self.sensors = {"enclosure": '41', "external": '40'}
+        #
+        # load from settings
+        try:
+            self.sensors = parse_sensor_config(self._settings.get(["pin_configuration"]))
+        except HTU31ParseException as e:
+            self._logger.error("parse error when reading config.py, exception: %s" % e)
+            self._logger.error(e)
 
         i2c = board.I2C()
         for name, pin in self.sensors.items():
