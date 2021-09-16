@@ -9,6 +9,7 @@ import octoprint.util
 
 from .libs.config import parse_sensor_config, HTU31ParseException
 
+
 class Htu31Plugin(
     octoprint.plugin.StartupPlugin,
     octoprint.plugin.TemplatePlugin,     
@@ -37,7 +38,7 @@ class Htu31Plugin(
             self.sensor_objects[name].heater = False
 
         self._logger.info("startup: pin_configuration: %s" % self._settings.get(["pin_configuration"]))
-        self.startTimer()
+        self.start_timer()
         # self._logger.info("exit on_after_startup")
 
     #~~ TemplatePlugin
@@ -78,7 +79,7 @@ class Htu31Plugin(
             parsed_temps[sensor_name] = (temp_value, None)
         return parsed_temps
 
-    def doWork(self):
+    def do_work(self):
         # self._logger.info("in doWork")
         for name, sensor_obj in self.sensor_objects.items():
             try:
@@ -88,14 +89,14 @@ class Htu31Plugin(
             except Exception as error:
                 self._logger.debug("exception: %s" % error.args[0])
 
-    def startTimer(self):
+    def start_timer(self):
         # TODO: allow this to be configured?
         # interval = self._settings.get_float(["interval"])
         interval = 2
         # self._logger.info(
         #     "starting timer to run command '%s' every %s seconds" % (the_cmd, interval)
         # )
-        self.timer = octoprint.util.RepeatedTimer(interval, self.doWork, run_first=True)
+        self.timer = octoprint.util.RepeatedTimer(interval, self.do_work, run_first=True)
         self.timer.start()
 
     ##~~ Softwareupdate hook
