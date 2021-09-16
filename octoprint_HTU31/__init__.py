@@ -27,7 +27,7 @@ class Htu31Plugin(
 
         # maps sensor name to pin
         # 0x41, 0x40
-        self.sensors = {"enclosure": 41, "external": 40}
+        self.sensors = {"enclosure": '41', "external": '40'}
         self.sensor_objects = {}
         self.current_data = {}
         self.timer = None
