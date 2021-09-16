@@ -90,7 +90,7 @@ class Htu31Plugin(
         for name, sensor_obj in self.sensor_objects.items():
             try:
                 temperature, _humidity =  sensor_obj.measurements
-                self.current_data[name] = temperature
+                self.current_data[name] = round(temperature, 2)
                 # self._logger.info("%s: %s" % (name, self.current_data[name]))
             except Exception as error:
                 self._logger.debug("exception: %s" % error.args[0])
