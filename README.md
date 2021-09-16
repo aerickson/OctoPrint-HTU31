@@ -2,7 +2,12 @@
 
 Reads HTU31 sensors and adds the data to OctoPrint's temperature data.
 
-https://www.adafruit.com/product/4832 is the recommended board. A multiplexer board is required to use more than two sensors.
+Data can be displayed with https://github.com/jneilliii/OctoPrint-PlotlyTempGraph.
+
+## Recommended Hardware
+
+- Adafruit 4832 (https://www.adafruit.com/product/4832)
+  - A multiplexer board (like https://www.adafruit.com/product/4704) is required to use more than two sensors due to address conflicts.
 
 ## Setup
 
@@ -11,10 +16,9 @@ or manually using this URL:
 
     https://github.com/aerickson/OctoPrint-HTU31/archive/master.zip
 
-## Graphing
-
-Install https://github.com/jneilliii/OctoPrint-PlotlyTempGraph to display the data.
-
 ## Configuration
 
-**TODO:** Pin configuration is hard-coded currently.
+Configure the sensor name and the i2c address.
+
+Format: "name:hex_address,name2:hex_address2"
+e.g.: "External:40,Enclosure:41"
