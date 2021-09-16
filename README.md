@@ -21,4 +21,4 @@ or manually using this URL:
 Configure the sensor name and the i2c address.
 
 Format: "name:hex_address,name2:hex_address2"
-e.g.: "External:40,Enclosure:41"
+e.g., "External:40,Enclosure:41"
