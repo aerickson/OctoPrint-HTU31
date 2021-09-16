@@ -12,7 +12,10 @@ def parse_sensor_config(pin_config_string):
     sensors = {}
     try:
         conf_pairs = pin_config_string.split(',')
-        for name, pin in conf_pairs.split(':'):
+        for item in conf_pairs:
+            pair = item.split(':')
+            name = pair[0]
+            pin = pair[1]
             sensors[name] = pin
             # print("%s: %s" %name, pin)
     except Exception as e:
