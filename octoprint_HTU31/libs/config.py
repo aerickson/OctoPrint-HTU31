@@ -16,8 +16,9 @@ def parse_sensor_config(pin_config_string):
             sensors[name] = pin
             # print("%s: %s" %name, pin)
     except Exception as e:
-        raise HTU31ParseException("parse error when reading config.py, exception: %s" % e)
+        raise HTU31ParseException("parse_sensor_config: parse error, exception: %s" % e)
     return sensors
+
 
 if __name__ == "__main__":
     # execute only if run as a script
