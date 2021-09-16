@@ -2,11 +2,9 @@
 
 Reads HTU31 sensors and adds the data to OctoPrint's temperature data.
 
+https://www.adafruit.com/product/4832 is the recommended board. A multiplexer board is required to use more than two sensors.
+
 ## Setup
-
-Install libgpiod2.
-
-`sudo apt-get install libgpiod2`
 
 Install via the bundled [Plugin Manager](https://docs.octoprint.org/en/master/bundledplugins/pluginmanager.html)
 or manually using this URL:
