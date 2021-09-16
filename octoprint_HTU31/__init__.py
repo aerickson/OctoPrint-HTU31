@@ -1,12 +1,8 @@
 # coding=utf-8
 from __future__ import absolute_import
 
-import logging
-import random
-
 import adafruit_htu31d
 import board
-import pprint
 
 import octoprint.plugin
 import octoprint.util
@@ -18,12 +14,16 @@ class Htu31Plugin(
     octoprint.plugin.SettingsPlugin,
 ):
 
+    def init(self):
+        # TODO: define instance vars
+        self.sensors = {}
+        self.sensor_objects = {}
+        self.current_data = {}
+        self.timer = None
+
     def on_after_startup(self):
         self._logger.info("in on_after_startup")
         self._logger.info("Hello World! (more: %s)" % self._settings.get(["pin_configuration"]))
-
-        # type of sensor we're using
-        # self.DHT_SENSOR = Adafruit_DHT.HTU31
 
         # maps sensor name to pin
         # 0x41, 0x40
@@ -96,8 +96,8 @@ class Htu31Plugin(
                 self._logger.debug("exception: %s" % error.args[0])
 
     def startTimer(self):
-        # interval = self._settings.get_float(["interval"])
         # TODO: allow this to be configured?
+        # interval = self._settings.get_float(["interval"])
         interval = 2
         # self._logger.info(
         #     "starting timer to run command '%s' every %s seconds" % (the_cmd, interval)
