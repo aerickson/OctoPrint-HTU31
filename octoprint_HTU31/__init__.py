@@ -16,25 +16,17 @@ class Htu31Plugin(
 ):
 
     def __init__(self):
-        # TODO: define instance vars
         self.sensors = {}
         self.sensor_objects = {}
         self.current_data = {}
         self.timer = None
 
     def on_after_startup(self):
-        self._logger.info("in on_after_startup")
-        self._logger.info("Hello World! (more: %s)" % self._settings.get(["pin_configuration"]))
-
-        # maps sensor name to pin
-        # 0x41, 0x40
-        # self.sensors = {"enclosure": '41', "external": '40'}
-        #
-        # load from settings
+        # self._logger.info("startup")
         try:
             self.sensors = parse_sensor_config(self._settings.get(["pin_configuration"]))
         except HTU31ParseException as e:
-            self._logger.error("parse error when reading config.py, exception: %s" % e)
+            self._logger.error("on_after_startup: parse error when reading settings, exception: %s" % e)
             self._logger.error(e)
 
         i2c = board.I2C()
@@ -43,13 +35,10 @@ class Htu31Plugin(
             self.sensor_objects[name] = adafruit_htu31d.HTU31D(i2c, int_value_for_hex_pin)
             # disable heater
             self.sensor_objects[name].heater = False
-            # self._logger.info(self.sensor_objects[name])
-        # self._logger.info("on_after_startup: %s" % pprint.pformat(self._settings))
-        self._logger.info("on_after_startup: debugging_enabled: %s" % self._settings.get_boolean(["debugging_enabled"]))
-        self._logger.info("on_after_startup: pin_configuration: %s" % self._settings.get(["pin_configuration"]))
-        self.startTimer()
-        self._logger.info("exit on_after_startup")
 
+        self._logger.info("startup: pin_configuration: %s" % self._settings.get(["pin_configuration"]))
+        self.startTimer()
+        # self._logger.info("exit on_after_startup")
 
     #~~ TemplatePlugin
     def get_template_configs(self):
@@ -88,7 +77,6 @@ class Htu31Plugin(
         for sensor_name, temp_value in self.current_data.items():
             parsed_temps[sensor_name] = (temp_value, None)
         return parsed_temps
-
 
     def doWork(self):
         # self._logger.info("in doWork")
