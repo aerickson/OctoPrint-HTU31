@@ -4,10 +4,10 @@
         <label class="control-label" for="htu31-sensors">{{ _('Sensors') }}</label>
         <div class="controls">
             <input type="text" class="input-block-level" data-bind="value: settings.plugins.HTU31.pin_configuration">
-            <span class="help-block">{{ _('Format: "name:hex_address,name2:hex_address2"') }}</span>
+            <span class="help-block">{{ _('Format: "name:i2c_address,name2:i2c_address2"') }}</span>
             <span class="help-block">{{ _('e.g.: "External:40,Enclosure:41"') }}</span>
             <span class="help-block">{{ _('Name will be used as the graph legend.') }}</span>
-            <span class="help-block">{{ _('Hex address should not include "0x".') }}</span>
+            <span class="help-block">{{ _('i2c address should not include "0x".') }}</span>
         </div>
     </div>
 </form>
