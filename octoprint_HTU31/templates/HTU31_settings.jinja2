@@ -1,13 +1,14 @@
+<h3>HTU31</h3>
+<label><span class="label label-info">Info:</span>
+        Name will be used as the graph legend. 'i2c address should not include "0x".
+</label>
 <form class="form-horizontal">
     <h3>{{ _('Configuration') }}</h3>
     <div class="control-group">
-        <label class="control-label" for="htu31-sensors">{{ _('Sensors') }}</label>
+        <span class="control-label">{{ _('Sensors') }}</span>
         <div class="controls">
-            <input type="text" class="input-block-level" data-bind="value: settings.plugins.HTU31.pin_configuration">
-            <span class="help-block">{{ _('Format: "name:i2c_address,name2:i2c_address2"') }}</span>
-            <span class="help-block">{{ _('e.g.: "External:40,Enclosure:41"') }}</span>
-            <span class="help-block">{{ _('Name will be used as the graph legend.') }}</span>
-            <span class="help-block">{{ _('i2c address should not include "0x".') }}</span>
+            <input type="text" class="input-block-level" data-bind="value: settingsViewModel.settings.plugins.HTU31.pin_configuration">
+            <span class="help-inline">Format: "name:i2c_address,name2:i2c_address2" ('e.g.: "External:40,Enclosure:41"')</span>
         </div>
     </div>
 </form>
