@@ -22,8 +22,11 @@ $(function() {
     OCTOPRINT_VIEWMODELS.push({
         construct: Htu31ViewModel,
         // ViewModels your plugin depends on, e.g. loginStateViewModel, settingsViewModel, ...
-        dependencies: [ /* "loginStateViewModel", "settingsViewModel" */ ],
+        dependencies: [ ],
+        // dependencies: [ "loginStateViewModel", "settingsViewModel" ],
+
         // Elements to bind to, e.g. #settings_plugin_HTU31, #tab_plugin_HTU31, ...
-        elements: [ /* ... */ ]
+        elements: []
+        // elements: [ "#settings_plugin_HTU31" ]
     });
 });
