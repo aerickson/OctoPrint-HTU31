@@ -14,7 +14,7 @@ plugin_package = "octoprint_HTU31"
 plugin_name = "OctoPrint-HTU31"
 
 # The plugin's version. Can be overwritten within OctoPrint's internal data via __plugin_version__ in the plugin module
-plugin_version = "0.1.8"
+plugin_version = "0.1.9"
 
 # The plugin's description. Can be overwritten within OctoPrint's internal data via __plugin_description__ in the plugin
 # module
@@ -35,7 +35,9 @@ plugin_license = "AGPLv3"
 # Any additional requirements besides OctoPrint should be listed here
 plugin_requires = ["adafruit-circuitpython-htu31d>=1.1.1",
 	# below are installed as deps of above, but we'd like to make sure they get updated
-	"adafruit-blinka>=6.13.0", "adafruit-platformdetect>=3.15.3"]
+	"adafruit-blinka>=6.13.0", "adafruit-platformdetect>=3.15.3",
+                   "pexpect>=4.8.0"
+                   ]
 
 ### --------------------------------------------------------------------------------------------------------------------
 ### More advanced options that you usually shouldn't have to touch follow after this point
