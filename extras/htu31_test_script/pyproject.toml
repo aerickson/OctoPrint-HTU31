@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "htu31-test-script"
+version = "0.1.0"
+description = ""
+authors = ["Andrew Erickson <aerickson@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+adafruit-circuitpython-htu31d = "^1.1.14"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
