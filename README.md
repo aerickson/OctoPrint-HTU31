@@ -9,14 +9,22 @@ Data can be displayed with https://github.com/jneilliii/OctoPrint-PlotlyTempGrap
 - Adafruit HTU31 Temperature & Humidity Sensor Breakout Board (https://www.adafruit.com/product/4832)
   - A multiplexer board (like https://www.adafruit.com/product/4704) is required to use more than two sensors due to address conflicts.
 
-## Setup
+## Installation and Setup
 
-Install the `wiringpi` package on Raspberry Pi OS.
+### Normal Installation
 
 Install via the bundled [Plugin Manager](https://docs.octoprint.org/en/master/bundledplugins/pluginmanager.html)
 or manually using this URL:
 
     https://github.com/aerickson/OctoPrint-HTU31/archive/master.zip
+
+### Advanced Installation
+
+Activate the Octoprint venv, cd into this repo, and `pip3 install .`.
+
+### Setup
+
+Configure the plugin with the i2c ID's of your sensors.
 
 ## Troubleshooting
 
