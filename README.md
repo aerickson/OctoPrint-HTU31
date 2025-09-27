@@ -6,8 +6,14 @@ Data from this plugin will be automatically displayed with https://github.com/jn
 
 ## Recommended Hardware
 
-- Adafruit HTU31 Temperature & Humidity Sensor Breakout Board (https://www.adafruit.com/product/4832)
-  - A multiplexer board (like https://www.adafruit.com/product/4704) is required to use more than two sensors due to address conflicts.
+- Sensors
+  - Adafruit HTU31 Temperature & Humidity Sensor Breakout Board (https://www.adafruit.com/product/4832)
+- OPTIONAL: I2C Multiplexer
+  - If you want more than two sensors, a multiplexer board (like https://www.adafruit.com/product/4704) to avoid address conflicts.
+- OPTIONAL: I2C extender
+  - If you want to use longer lengths of cables (sensors will fail to work at longer cable lenghts without these). 
+  - Sparkfun Qwiicbus System (https://www.sparkfun.com/sparkfun-qwiicbus-kit.html)
+  - Adafruit LTC4311 I2C Extender / Active Terminator (https://www.adafruit.com/product/4756).
 
 ## Installation
 
