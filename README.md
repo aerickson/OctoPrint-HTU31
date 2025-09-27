@@ -66,12 +66,13 @@ https://github.com/joan2937/lg/issues/12
 ```bash
 # find out the path of the systemd service file
 systemctl status rpi5-octopi  # or your service name
+
 # edit the file and add the following:
 #   Environment="LG_WD=/tmp"
 
-
 # reload config
 systemctl daemon-reload
+
 # restart service
 systemctl restart rpi5-octopi  # or your service name
 ```
