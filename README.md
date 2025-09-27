@@ -9,7 +9,7 @@ Data can be displayed with https://github.com/jneilliii/OctoPrint-PlotlyTempGrap
 - Adafruit HTU31 Temperature & Humidity Sensor Breakout Board (https://www.adafruit.com/product/4832)
   - A multiplexer board (like https://www.adafruit.com/product/4704) is required to use more than two sensors due to address conflicts.
 
-## Installation and Setup
+## Installation
 
 ### Normal Installation
 
@@ -22,9 +22,13 @@ or manually using this URL:
 
 Activate the Octoprint venv, cd into this repo, and `pip3 install .`.
 
-### Setup
+## Configuration
 
-Configure the plugin with the i2c ID's of your sensors.
+In Octoprint, configure the plugin with the i2c ID's of your sensors.
+
+Format: "name:hex_address,name2:hex_address2"
+e.g., "External:40,Enclosure:41"
+
 
 ## Troubleshooting
 
@@ -81,10 +85,3 @@ Traceback (most recent call last):
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 FileNotFoundError: [Errno 2] No such file or directory: '.lgd-nfy-3'
 ```
-
-## Configuration
-
-Configure the sensor name and the i2c address.
-
-Format: "name:hex_address,name2:hex_address2"
-e.g., "External:40,Enclosure:41"
