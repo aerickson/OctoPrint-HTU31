@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "OctoPrint-HTU31"
+version = "0.2.0"
+description = "Reads HTU31 sensors and adds the data to OctoPrint's temperature data."
+readme = {file = "README.md", content-type = "markdown"}
+requires-python = ">=3.7, <4"
+dynamic = ["license"]
+authors = [
+    {name = "Andrew J. Erickson", email = "aerickson@gmail.com"}
+]
+dependencies = []
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = [
+    "octoprint_HTU31",
+    "octoprint_HTU31.*"
+]
+
+[project.entry-points."octoprint.plugin"]
+HTU31 = "octoprint_HTU31"
+
+[project.urls]
+Homepage = "https://github.com/aerickson/OctoPrint-HTU31"
