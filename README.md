@@ -20,7 +20,7 @@ or manually using this URL:
 
 ### RPI 5 Setup
 
-If you get lgpio errors when OctoPrint starts, you may need to add an environment variable to the SystemD service file.
+If you get lgpio errors (see below) when OctoPrint starts, you may need to add an environment variable to the SystemD service file.
 
 https://github.com/joan2937/lg/issues/22
 https://github.com/joan2937/lg/issues/12
@@ -37,6 +37,37 @@ systemctl status rpi5-octopi  # or your service name
 systemctl daemon-reload
 # restart service
 systemctl restart rpi5-octopi  # or your service name
+```
+
+#### example failure to load
+
+```
+2025-09-27 15:26:39,417 - octoprint.plugin.core - ERROR - Error loading plugin HTU31
+Traceback (most recent call last):
+  File "/home/aje/OctoPrint/lib/python3.11/site-packages/octoprint/plugin/core.py", line 1339, in _import_plugin
+    module = _load_module(spec)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/aje/OctoPrint/lib/python3.11/site-packages/octoprint/plugin/core.py", line 74, in _load_module
+    spec.loader.exec_module(sys.modules[spec.name])
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/aje/OctoPrint/lib/python3.11/site-packages/octoprint_HTU31/__init__.py", line 5, in <module>
+    import board
+  File "/home/aje/OctoPrint/lib/python3.11/site-packages/board.py", line 45, in <module>
+    from adafruit_blinka.board.raspberrypi.raspi_5 import *
+  File "/home/aje/OctoPrint/lib/python3.11/site-packages/adafruit_blinka/board/raspberrypi/raspi_5.py", line 6, in <module>
+    from adafruit_blinka.microcontroller.bcm2712 import pin
+  File "/home/aje/OctoPrint/lib/python3.11/site-packages/adafruit_blinka/microcontroller/bcm2712/pin.py", line 7, in <module>
+    from adafruit_blinka.microcontroller.generic_linux.lgpio_pin import Pin
+  File "/home/aje/OctoPrint/lib/python3.11/site-packages/adafruit_blinka/microcontroller/generic_linux/lgpio_pin.py", line 7, in <module>
+    import lgpio
+  File "/home/aje/OctoPrint/lib/python3.11/site-packages/lgpio.py", line 562, in <module>
+    _notify_thread = _callback_thread()
+                     ^^^^^^^^^^^^^^^^^^
+  File "/home/aje/OctoPrint/lib/python3.11/site-packages/lgpio.py", line 504, in __init__
+    self._file = open('.lgd-nfy{}'.format(self._notify), 'rb')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '.lgd-nfy-3'
 ```
 
 ## Configuration
