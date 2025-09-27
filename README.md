@@ -19,8 +19,7 @@ Data from this plugin will be automatically displayed with https://github.com/jn
 
 ### Normal Installation
 
-Install via the bundled [Plugin Manager](https://docs.octoprint.org/en/master/bundledplugins/pluginmanager.html)
-or manually using this URL:
+In [Plugin Manager](https://docs.octoprint.org/en/master/bundledplugins/pluginmanager.html), select '... from URL' and enter:
 
 ```
 https://github.com/aerickson/OctoPrint-HTU31/archive/master.zip
@@ -31,7 +30,7 @@ https://github.com/aerickson/OctoPrint-HTU31/archive/master.zip
 ```bash
 # NOTE: paths may vary
 
-# activate the Octoprint venv
+# activate the OctoPrint venv
 . ./OctoPrint/bin/activate
 
 # cd into this repo
@@ -43,10 +42,15 @@ pip3 install .`
 
 ## Configuration
 
-In Octoprint, configure the plugin with the i2c ID's of your sensors.
+In OctoPrint, configure the plugin with the i2c ID's of your sensors.
 
 Format: "name:hex_address,name2:hex_address2"
 e.g., "External:40,Enclosure:41"
+
+## TODO
+
+- Get listed on https://plugins.octoprint.org/.
+  - https://plugins.octoprint.org/help/registering/
 
 ## Troubleshooting
 
