@@ -18,6 +18,27 @@ or manually using this URL:
 
     https://github.com/aerickson/OctoPrint-HTU31/archive/master.zip
 
+### RPI 5 Setup
+
+If you get lgpio errors when OctoPrint starts, you may need to add an environment variable to the SystemD service file.
+
+https://github.com/joan2937/lg/issues/22
+https://github.com/joan2937/lg/issues/12
+
+
+```bash
+# find out the path of the systemd service file
+systemctl status rpi5-octopi  # or your service name
+# edit the file and add the following:
+#   Environment="LG_WD=/tmp"
+
+
+# reload config
+systemctl daemon-reload
+# restart service
+systemctl restart rpi5-octopi  # or your service name
+```
+
 ## Configuration
 
 Configure the sensor name and the i2c address.
