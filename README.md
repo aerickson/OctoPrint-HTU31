@@ -2,7 +2,7 @@
 
 Reads HTU31 sensors and adds the data to OctoPrint's temperature data.
 
-Data can be displayed with https://github.com/jneilliii/OctoPrint-PlotlyTempGraph.
+Data from this plugin will be automatically displayed with https://github.com/jneilliii/OctoPrint-PlotlyTempGraph.
 
 ## Recommended Hardware
 
