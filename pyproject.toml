@@ -12,8 +12,11 @@ dynamic = ["license"]
 authors = [
     {name = "Andrew J. Erickson", email = "aerickson@gmail.com"}
 ]
-dependencies = []
-
+dependencies = [
+    "adafruit-circuitpython-htu31d>=1.1.19",
+    "lgpio>=0.2.2.0",
+    "rpi-gpio>=0.7.1",
+]
 [tool.setuptools]
 include-package-data = true
 
