@@ -11,7 +11,7 @@ Data from this plugin will be automatically displayed with https://github.com/jn
 - OPTIONAL: I2C multiplexer
   - If you want more than two sensors, a multiplexer board (like https://www.adafruit.com/product/4704) to avoid address conflicts.
 - OPTIONAL: I2C extender
-  - If you want to use longer lengths of cables (sensors will fail to work at longer cable lenghts without these). 
+  - If you want to use longer lengths of cables (sensors will fail to work at longer cable lenghts without these).
   - Sparkfun Qwiicbus System (https://www.sparkfun.com/sparkfun-qwiicbus-kit.html)
   - Adafruit LTC4311 I2C Extender / Active Terminator (https://www.adafruit.com/product/4756).
 
@@ -22,11 +22,24 @@ Data from this plugin will be automatically displayed with https://github.com/jn
 Install via the bundled [Plugin Manager](https://docs.octoprint.org/en/master/bundledplugins/pluginmanager.html)
 or manually using this URL:
 
-    https://github.com/aerickson/OctoPrint-HTU31/archive/master.zip
+```
+https://github.com/aerickson/OctoPrint-HTU31/archive/master.zip
+```
 
 ### Advanced Installation
 
-Activate the Octoprint venv, cd into this repo, and `pip3 install .`.
+```bash
+# NOTE: paths may vary
+
+# activate the Octoprint venv
+. ./OctoPrint/bin/activate
+
+# cd into this repo
+cd ~/git/OctoPrint-HTU31
+
+# isntall the plugin
+pip3 install .`
+```
 
 ## Configuration
 
@@ -34,7 +47,6 @@ In Octoprint, configure the plugin with the i2c ID's of your sensors.
 
 Format: "name:hex_address,name2:hex_address2"
 e.g., "External:40,Enclosure:41"
-
 
 ## Troubleshooting
 
@@ -46,7 +58,6 @@ If you get lgpio errors (see below) when OctoPrint starts, you may need to add a
 
 https://github.com/joan2937/lg/issues/22
 https://github.com/joan2937/lg/issues/12
-
 
 ```bash
 # find out the path of the systemd service file
