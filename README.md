@@ -18,7 +18,11 @@ or manually using this URL:
 
     https://github.com/aerickson/OctoPrint-HTU31/archive/master.zip
 
-### RPI 5 Setup
+## Troubleshooting
+
+### LGPIO File not found
+
+This may happen specifically on RPI 5 devices.
 
 If you get lgpio errors (see below) when OctoPrint starts, you may need to add an environment variable to the SystemD service file.
 
