@@ -8,7 +8,7 @@ Data from this plugin will be automatically displayed with https://github.com/jn
 
 - Sensors
   - Adafruit HTU31 Temperature & Humidity Sensor Breakout Board (https://www.adafruit.com/product/4832)
-- OPTIONAL: I2C Multiplexer
+- OPTIONAL: I2C multiplexer
   - If you want more than two sensors, a multiplexer board (like https://www.adafruit.com/product/4704) to avoid address conflicts.
 - OPTIONAL: I2C extender
   - If you want to use longer lengths of cables (sensors will fail to work at longer cable lenghts without these). 
