@@ -50,6 +50,7 @@ e.g., "External:40,Enclosure:41"
 ## TODO
 
 - Export humidity data also.
+- If a sensor disappears, stop sending data (vs sending old data).
 - Get listed on https://plugins.octoprint.org/.
   - https://plugins.octoprint.org/help/registering/
 
