@@ -10,7 +10,7 @@ import octoprint.util
 from .libs.config import parse_sensor_config, HTU31ParseException
 
 
-class Htu31Plugin(
+class HTU31Plugin(
     octoprint.plugin.StartupPlugin,
     octoprint.plugin.TemplatePlugin,
     octoprint.plugin.SettingsPlugin,
@@ -137,7 +137,7 @@ __plugin_pythoncompat__ = ">=2.7,<4"  # python 2 and 3
 
 def __plugin_load__():
     global __plugin_implementation__
-    __plugin_implementation__ = Htu31Plugin()
+    __plugin_implementation__ = HTU31Plugin()
 
     global __plugin_hooks__
     __plugin_hooks__ = {
