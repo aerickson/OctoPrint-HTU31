@@ -30,14 +30,17 @@ https://github.com/aerickson/OctoPrint-HTU31/archive/master.zip
 ```bash
 # NOTE: paths may vary
 
-# activate the OctoPrint venv
-. ./OctoPrint/bin/activate
+# activate the OctoPrint virtual environment
+source ~/OctoPrint/bin/activate
 
 # cd into this repo
 cd ~/git/OctoPrint-HTU31
 
-# isntall the plugin
-pip3 install .`
+# install the plugin in editable mode
+pip install -e .
+
+# The package requires a Pi 5-compatible version of Adafruit Blinka and
+# installs the required hardware dependencies automatically.
 ```
 
 ## Configuration
@@ -50,6 +53,7 @@ e.g., "External:40,Enclosure:41"
 ## TODO
 
 - Export humidity data also.
+- If a sensor disappears, stop sending data (vs sending old data).
 - Get listed on https://plugins.octoprint.org/.
   - https://plugins.octoprint.org/help/registering/
 
