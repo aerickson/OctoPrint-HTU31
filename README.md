@@ -30,14 +30,17 @@ https://github.com/aerickson/OctoPrint-HTU31/archive/master.zip
 ```bash
 # NOTE: paths may vary
 
-# activate the OctoPrint venv
-. ./OctoPrint/bin/activate
+# activate the OctoPrint virtual environment
+source ~/OctoPrint/bin/activate
 
 # cd into this repo
 cd ~/git/OctoPrint-HTU31
 
-# isntall the plugin
-pip3 install .`
+# install the plugin in editable mode
+pip install -e .
+
+# The package requires a Pi 5-compatible version of Adafruit Blinka and
+# installs the required hardware dependencies automatically.
 ```
 
 ## Configuration
